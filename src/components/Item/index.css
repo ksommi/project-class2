@@ -1,0 +1,50 @@
+.containerProduct{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    width: 300px;
+    margin: 2px;
+    background-color: #D9D9D9;
+}
+
+.productTitle{
+    font-size: 15px;
+    height: 10%;
+    text-align: center;
+    color: #0b0b0b;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.productImage{
+    max-height: 50%;
+    max-width: 70%;
+}
+
+.productDescription{
+    text-align: center;
+    font-size: 12px;
+    height: 15%;
+    overflow: hidden;    
+    text-overflow: ellipsis;
+    margin: 10px;
+    color: #0b0b0b;
+    flex-grow: 2;
+}
+
+.productPrice{
+    font-size: 18px;
+    color: #0b0b0b
+}
+
+.productLink{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #0b0b0b;
+    background-color: #acacac;
+    margin: 5px;
+}
