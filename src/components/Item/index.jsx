@@ -1,7 +1,14 @@
 import React from "react";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const Item = ({ product }) => {
+  const navigate = useNavigate();
+
+  const handleDetail = () => {
+    navigate(`/detail/${product.id}`);
+  };
+
   return (
     <li className="containerProduct">
       <h3 className="productTitle">{product.title}</h3>
@@ -12,9 +19,9 @@ const Item = ({ product }) => {
       />
       <p className="productDescription">{product.description}</p>
       <p className="productPrice">${product.price}</p>
-      <a href="#" className="productLink">
+      <button href="#" className="productLink" onClick={handleDetail}>
         Ver producto en detalle
-      </a>
+      </button>
     </li>
   );
 };

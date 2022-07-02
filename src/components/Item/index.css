@@ -4,15 +4,15 @@
     align-items: center;
     height: 400px;
     width: 300px;
-    margin: 2px;
-    background-color: #D9D9D9;
+    margin-top: 15px;
+    background-color:var(--purewhite)
 }
 
 .productTitle{
     font-size: 15px;
     height: 10%;
     text-align: center;
-    color: #0b0b0b;
+    color: var(--black);
     display: flex;
     align-items: center;
     flex-grow: 1;
@@ -30,13 +30,13 @@
     overflow: hidden;    
     text-overflow: ellipsis;
     margin: 10px;
-    color: #0b0b0b;
+    color: var(--black);
     flex-grow: 2;
 }
 
 .productPrice{
     font-size: 18px;
-    color: #0b0b0b
+    color: var(--black)
 }
 
 .productLink{
@@ -44,7 +44,14 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #0b0b0b;
-    background-color: #acacac;
+    color: var(--purewhite);
+    background-color: var(--blue);
     margin: 5px;
+    border: none;
+    transition: 0.5s;
+}
+
+.productLink:hover {
+    background-color: var(--darkblue);
+    transition: 0.5s;
 }

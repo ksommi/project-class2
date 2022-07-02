@@ -2,31 +2,32 @@ import React from "react";
 import CartWidget from "../CartWidget";
 import "./style.css";
 import { BiFootball } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div className="container-navbar">
-      <a href="index">
-        <BiFootball size={24} />
-      </a>
+      <Link to="/">
+        <BiFootball size={24} className="logo" />
+      </Link>
       <ul className="container-list">
         <li>
-          <a href="index">Inicio</a>
+          <Link to="/">Inicio</Link>
         </li>
         <li>
-          <a href="index">Indumentaria</a>
+          <Link to="/category/electronics">Electronics</Link>
         </li>
         <li>
-          <a href="index">Pelotas</a>
+          <Link to="/category/jewelery">Jewelery</Link>
         </li>
         <li>
-          <a href="index">Botines</a>
+          <Link to="/category/women's clothing">Women's Clothing</Link>
         </li>
         <li>
-          <a href="index">Contacto</a>
+          <Link to="/category/men's clothing">Men's Clothing</Link>
         </li>
         <li>
-          <a href="index">Iniciar Sesión</a>
+          <Link to="/">Iniciar Sesión</Link>
         </li>
       </ul>
       <CartWidget />

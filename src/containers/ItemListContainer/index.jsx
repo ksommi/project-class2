@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import ItemCount from "../../components/ItemCount";
 import ItemList from "../../components/ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
-  const handleAdd = () => {
-    console.log("Se agregó al carrito");
-  };
+  const [productos, setProductos] = useState([]);
+  const [productosFiltrados, setProductosFiltrados] = useState([]);
 
-  const [productos, setProductos] = useState(null);
+  const params = useParams();
+
+  console.log(params);
 
   useEffect(() => {
     const getProductos = async () => {
@@ -16,6 +17,7 @@ const ItemListContainer = ({ greeting }) => {
         const data = await response.json();
         console.log(data);
         setProductos(data);
+        setProductosFiltrados(data);
       } catch (error) {
         console.log("hubo un error");
         console.log(error);
@@ -25,15 +27,28 @@ const ItemListContainer = ({ greeting }) => {
     getProductos();
   }, []);
 
+  useEffect(() => {
+    if (params?.categoryId) {
+      const productosFiltrados = productos.filter(
+        (producto) => producto.category === params.categoryId
+      );
+      setProductosFiltrados(productosFiltrados);
+    } else {
+      setProductosFiltrados(productos);
+    }
+  }, [params, productos]);
+
   console.log(productos);
 
   return (
     <div>
-      {greeting}
       <div>
-        <ItemCount handleAdd={handleAdd} initialStock={10} />
+        {productos.length !== 0 ? (
+          <ItemList products={productosFiltrados} />
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
-      <div>{productos ? <ItemList products={productos} /> : null}</div>
     </div>
   );
 };
