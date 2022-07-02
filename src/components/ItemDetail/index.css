@@ -1,0 +1,60 @@
+.detailContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 5vw;
+}
+
+.detailTitle {
+    text-align: center;
+    font-size: 30px;
+}
+
+.detailImage {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.detailPRDContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 20px;
+}
+
+.detailPRContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailPrice, .detailRate {
+    font-size: 25px;
+}
+
+.detailDescription {
+    margin: 20px 0px;
+}
+
+.detailImgContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.addCart {
+    width: 180px;
+    height: 40px;
+    align-self: flex-end;
+    border: none;
+    border-radius: 5px;
+    color: #0b0b0b;
+    background-color: #d0d0d0;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.7s;
+}
+
+.addCart:hover {
+    background-color: #0b0b0b;
+    color: #d0d0d0;
+    transition: 0.3s;
+    border: solid 2px #d0d0d0;
+}
