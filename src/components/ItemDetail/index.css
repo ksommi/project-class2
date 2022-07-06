@@ -40,21 +40,29 @@
 }
 
 .addCart {
+    align-self: flex-end;
+}
+
+.containerSuperiorItemCount{
+    align-self: flex-end;
+}
+
+.goCart {
     width: 180px;
     height: 40px;
     align-self: flex-end;
     border: none;
     border-radius: 5px;
-    color: #0b0b0b;
-    background-color: #d0d0d0;
+    background-color: var(--grey);
+    color: var(--white);
     font-weight: bold;
     font-size: 15px;
     transition: 0.7s;
 }
 
-.addCart:hover {
-    background-color: #0b0b0b;
-    color: #d0d0d0;
+.goCart:hover {
+    color: var(--grey);
+    background-color: var(--white);
     transition: 0.3s;
-    border: solid 2px #d0d0d0;
+    border: solid 2px var(--grey);
 }

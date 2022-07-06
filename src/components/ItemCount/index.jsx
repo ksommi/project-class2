@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const ItemCount = ({ handleAdd, initialStock }) => {
+const ItemCount = ({ handleAdd, stock }) => {
   const [contador, setContador] = useState(1);
 
   const onAdd = () => {
-    if (contador < initialStock) {
+    if (contador < stock) {
       setContador(contador + 1);
     }
   };
@@ -16,8 +16,16 @@ const ItemCount = ({ handleAdd, initialStock }) => {
     }
   };
 
+  const handleConfirm = () => {
+    if (contador <= stock) {
+      handleAdd(contador);
+    } else {
+      alert("Value > maxQuantity");
+    }
+  };
+
   return (
-    <div>
+    <div className="containerSuperiorItemCount">
       <div className="containerItemCount">
         <button onClick={onOut} className="buttonCount">
           -
@@ -27,7 +35,7 @@ const ItemCount = ({ handleAdd, initialStock }) => {
           +
         </button>
       </div>
-      <button onClick={handleAdd} className="buttonAddCart">
+      <button onClick={handleConfirm} className="buttonAddCart">
         Agregar al carrito
       </button>
     </div>
