@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartWidget from "../CartWidget";
 import "./style.css";
 import { BiFootball } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { Shop } from "../../context/shopContext";
 
 const NavBar = () => {
+  const { estadoA } = useContext(Shop);
+
   return (
     <div className="container-navbar">
       <Link to="/">
@@ -27,10 +30,12 @@ const NavBar = () => {
           <Link to="/category/men's clothing">Men's Clothing</Link>
         </li>
         <li>
-          <Link to="/">Iniciar Sesión</Link>
+          <Link to="/">{estadoA}</Link>
         </li>
       </ul>
-      <CartWidget />
+      <Link to="/cart" style={{ textDecoration: "none" }}>
+        <CartWidget />
+      </Link>
     </div>
   );
 };

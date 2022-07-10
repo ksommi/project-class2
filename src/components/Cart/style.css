@@ -1,0 +1,71 @@
+.cartContainer{
+    background-color: var(--backwhite);
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 36px 50px 4px rgba(0,0,0,0.3);
+}
+
+.thTable{
+    color:var(--black);
+}
+
+.tableImg{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background-color: var(--purewhite);
+    border: 2px solid var(--purewhite);
+}
+
+.tableTitle {
+    width: 250px;
+}
+
+.tablePrice {
+    width: 100px;
+}
+
+.tableTitle, .tablePrice, .tableQty{
+    text-align: center;
+}
+
+.iconDelete {
+    width: 18px;
+    fill: var(--white);
+}
+
+.tableDelete {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    fill: var(--blue);
+    background-color: var(--grey);
+    transition: 0.4s;
+}
+
+.tableDelete:hover {
+    background-color: var(--black);
+}
+
+
+.cartDelete {
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: var(--white);
+    background-color: var(--grey);
+    transition: 0.4s;
+}
+
+.cartDelete:hover {
+    background-color: var(--black);
+}
