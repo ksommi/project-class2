@@ -21,13 +21,9 @@ const ShopProvider = ({ children }) => {
     }
   };
 
-  const removeItem = (e) => {
-    const productId = Number(e.target.id);
-    const index = cart.findIndex((producto) => producto.id === productId);
-    if (index > -1) {
-      cart.splice(index, 1);
-      setCart([...cart]);
-    }
+  const removeItem = (id) => {
+    const newItems = cart.filter((producto) => producto.id !== id);
+    setCart(newItems);
   };
 
   const clear = () => {

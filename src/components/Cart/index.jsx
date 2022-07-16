@@ -7,10 +7,6 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { cart, removeItem, clear } = useContext(Shop);
 
-  const deleteItem = (e) => {
-    removeItem(e);
-  };
-
   const clearItems = () => {
     clear();
   };
@@ -39,6 +35,7 @@ const Cart = () => {
             </th>
           </tr>
           {cart.map((producto) => {
+            console.log("cart", producto);
             return (
               <tr key={producto.id} className="cartRows">
                 <td className="tableQty">{producto.quantity}</td>
@@ -53,8 +50,7 @@ const Cart = () => {
                 <td className="tablePrice">{producto.price}</td>
                 <td>
                   <button
-                    id={producto.id}
-                    onClick={deleteItem}
+                    onClick={() => removeItem(producto.id)}
                     className="tableDelete"
                   >
                     <MdDelete size={24} className="iconDelete" />
