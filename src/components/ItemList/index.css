@@ -1,6 +1,9 @@
 .containerItems{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0 50px;
+}
+
+@media (max-width:768px) {
+
+
 }

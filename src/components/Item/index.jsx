@@ -11,16 +11,17 @@ const Item = ({ product }) => {
 
   return (
     <li className="containerProduct">
-      <h3 className="productTitle">{product.title}</h3>
       <img
         className="productImage"
         src={product.image}
         alt="Imagen del producto"
       />
+      <h3 className="productTitle">{product.title}</h3>
+      <hr />
       <p className="productDescription">{product.description}</p>
       <p className="productPrice">${product.price}</p>
-      <button href="#" className="productLink" onClick={handleDetail}>
-        Ver producto en detalle
+      <button href="#" className="productLink btn" onClick={handleDetail}>
+        Comprar
       </button>
     </li>
   );

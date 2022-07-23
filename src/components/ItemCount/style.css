@@ -1,5 +1,5 @@
 .containerItemCount {
-    background-color: #1E1E1E;
+    background-color: var(--darkblue);
     width: 180px;
     display: flex;
     flex-direction: row;
@@ -11,25 +11,29 @@
 .buttonCount {
     height: 30px;
     width: 30px;
-    color: var(--white);
+    color: var(--purewhite);
     outline: none;
     border: none;
-    background-color:var(--grey);
+    background-color:var(--darkblue);
     font-size: large;
     border-radius: 10px;
 }
 
 .numberCount {
-    background-color:var(--grey);
-    color: var(--white);
+    color: var(--purewhite);
 }
 
 .buttonAddCart {
     width: 180px;
     height: 30px;
     margin: 10px 0px;
-    background-color: var(--grey);
-    color: var(--white);
+    background-color: var(--darkblue);
+    color: var(--purewhite);
     border: none;
     border-radius: 10px;
+    transition: 0.3s;
+}
+
+.buttonAddCart:hover {
+    background-color: var(--blue);
 }

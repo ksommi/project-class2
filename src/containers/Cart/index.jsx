@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { Shop } from "../../context/shopContext";
 import "./style.css";
 import { MdDelete, MdDeleteForever } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import generarOrden from "../../utils/generarOrden";
+import guardarOrden from "../../utils/guardarOrden";
 
 const Cart = () => {
   const { cart, removeItem, clear } = useContext(Shop);
+  const navigate = useNavigate();
 
   const clearItems = () => {
     clear();
@@ -18,6 +21,22 @@ const Cart = () => {
     );
   };
 
+  const confirmBuy = async () => {
+    const orden = generarOrden(
+      {
+        name: "Kevin",
+        address: "Avenida Siempreviva 742",
+        mail: "ksommi@gmail.com",
+      },
+      cart,
+      getTotalPrice()
+    );
+    guardarOrden(cart, orden, navigate);
+    setTimeout(() => {
+      clear();
+    }, 10000);
+  };
+
   return (
     <div>
       {cart.length !== 0 ? (
@@ -26,7 +45,7 @@ const Cart = () => {
             <th className="thTable">Items</th>
             <th className="thTable">Image</th>
             <th className="thTable">Title</th>
-            <th className="thTable">Unit Price</th>
+            <th className="thTable">Price</th>
             <th>
               <button onClick={clearItems} className="cartDelete">
                 <MdDeleteForever className="iconClear" size={24} />
@@ -35,7 +54,9 @@ const Cart = () => {
             </th>
           </tr>
           {cart.map((producto) => {
-            console.log("cart", producto);
+            const precioItems = () => {
+              return producto.quantity * producto.price;
+            };
             return (
               <tr key={producto.id} className="cartRows">
                 <td className="tableQty">{producto.quantity}</td>
@@ -47,7 +68,7 @@ const Cart = () => {
                   />
                 </td>
                 <td className="tableTitle">{producto.title}</td>
-                <td className="tablePrice">{producto.price}</td>
+                <td className="tablePrice">$ {precioItems()}</td>
                 <td>
                   <button
                     onClick={() => removeItem(producto.id)}
@@ -66,7 +87,9 @@ const Cart = () => {
             <td className="totalPrice">
               <p>Total: ${getTotalPrice()}</p>
             </td>
-            <td></td>
+            <td>
+              <button onClick={confirmBuy}>Confirmar compra</button>
+            </td>
           </tr>
         </table>
       ) : (

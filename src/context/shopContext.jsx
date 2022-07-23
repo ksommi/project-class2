@@ -5,8 +5,6 @@ import { createContext } from "react";
 export const Shop = createContext();
 
 const ShopProvider = ({ children }) => {
-  const [estadoA, setEstadoA] = useState("Valor por defecto");
-
   const [cart, setCart] = useState([]);
 
   const addItem = (producto, cantidad) => {
@@ -27,8 +25,7 @@ const ShopProvider = ({ children }) => {
   };
 
   const clear = () => {
-    cart.splice(0);
-    setCart([...cart]);
+    setCart([]);
   };
 
   const isInCart = (producto) => {
@@ -36,9 +33,7 @@ const ShopProvider = ({ children }) => {
   };
 
   return (
-    <Shop.Provider
-      value={{ estadoA, setEstadoA, addItem, removeItem, cart, clear }}
-    >
+    <Shop.Provider value={{ addItem, removeItem, cart, clear }}>
       {children}
     </Shop.Provider>
   );

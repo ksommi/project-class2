@@ -4,7 +4,7 @@ import "./index.css";
 
 const ItemList = ({ products }) => {
   return (
-    <ul className="containerItems">
+    <ul className="containerItems paddings">
       {products.map((producto) => {
         return <Item product={producto} key={producto.id} />;
       })}

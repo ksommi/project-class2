@@ -26,18 +26,24 @@ const ItemCount = ({ handleAdd, stock }) => {
 
   return (
     <div className="containerSuperiorItemCount">
-      <div className="containerItemCount">
-        <button onClick={onOut} className="buttonCount">
-          -
-        </button>
-        <span className="numberCount">{contador}</span>
-        <button onClick={onAdd} className="buttonCount">
-          +
-        </button>
-      </div>
-      <button onClick={handleConfirm} className="buttonAddCart">
-        Agregar al carrito
-      </button>
+      {stock >= 1 ? (
+        <>
+          <div className="containerItemCount">
+            <button onClick={onOut} className="buttonCount">
+              -
+            </button>
+            <span className="numberCount">{contador}</span>
+            <button onClick={onAdd} className="buttonCount">
+              +
+            </button>
+          </div>
+          <button onClick={handleConfirm} className="buttonAddCart">
+            Agregar al carrito
+          </button>
+        </>
+      ) : (
+        <div>Sin stock</div>
+      )}
     </div>
   );
 };

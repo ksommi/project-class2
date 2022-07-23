@@ -1,49 +1,58 @@
 .detailContainer {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    margin: 0px 5vw;
+    flex-direction: row;
+    margin: 20px 5vw;
+    background-color: var(--purewhite);
+    padding: 20px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
 }
 
-.detailTitle {
-    text-align: center;
-    font-size: 30px;
+.detailLoading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.detailImgContainer{
+    width: 38vw;
+}
+
+ 
 .detailImage {
-    max-width: 400px;
-    max-height: 400px;
+    width: 100%
 }
 
 .detailPRDContainer {
+    width: 50vw;
     display: flex;
     flex-direction: column;
-    margin: 15px 20px;
+    margin: 0 20px;
+    flex-grow: 1;
 }
 
-.detailPRContainer {
-    display: flex;
-    justify-content: space-between;
+.detailCategory {
+    text-transform: uppercase;
+    color: var(--blue);
 }
 
-.detailPrice, .detailRate {
-    font-size: 25px;
+.detailTitle {
+    font-size: 1.8em;
+    width: 100%;
 }
 
 .detailDescription {
     margin: 20px 0px;
+    color: var(--grey);
+    font-weight: 300;
 }
 
-.detailImgContainer {
-    display: flex;
-    flex-direction: row;
-}
-
-.addCart {
-    align-self: flex-end;
+.detailPrice {
+    font-size: 1.7em;
 }
 
 .containerSuperiorItemCount{
+    margin-top: 1em;
     align-self: flex-end;
 }
 
@@ -61,8 +70,7 @@
 }
 
 .goCart:hover {
-    color: var(--grey);
-    background-color: var(--white);
+    color: var(--purewhite);
+    background-color: var(--blue);
     transition: 0.3s;
-    border: solid 2px var(--grey);
 }

@@ -3,14 +3,16 @@ import ItemList from "../../components/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import Loading from "../../components/Loading";
+import "./style.css";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
 
   const params = useParams();
 
-  console.log(params);
+  console.log("UseParams", params);
 
   useEffect(() => {
     const getProductos = async () => {
@@ -48,15 +50,15 @@ const ItemListContainer = ({ greeting }) => {
   console.log(productos);
 
   return (
-    <div>
-      <div>
-        {productos.length !== 0 ? (
-          <ItemList products={productosFiltrados} />
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-    </div>
+    <>
+      {productos.length !== 0 ? (
+        <ItemList products={productosFiltrados} />
+      ) : (
+        <div className="loadingContainer">
+          <Loading />
+        </div>
+      )}
+    </>
   );
 };
 
