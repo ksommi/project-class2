@@ -5,14 +5,11 @@ import { MdDelete, MdDeleteForever } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import generarOrden from "../../utils/generarOrden";
 import guardarOrden from "../../utils/guardarOrden";
+import Swal from "sweetalert2";
 
 const Cart = () => {
   const { cart, removeItem, clear } = useContext(Shop);
   const navigate = useNavigate();
-
-  const clearItems = () => {
-    clear();
-  };
 
   const getTotalPrice = () => {
     return cart.reduce(
@@ -21,82 +18,175 @@ const Cart = () => {
     );
   };
 
-  const confirmBuy = async () => {
-    const orden = generarOrden(
-      {
-        name: "Kevin",
-        address: "Avenida Siempreviva 742",
-        mail: "ksommi@gmail.com",
-      },
-      cart,
-      getTotalPrice()
-    );
+  const confirmBuy = async (orderBuyer) => {
+    const orden = generarOrden(orderBuyer, cart, getTotalPrice());
     guardarOrden(cart, orden, navigate);
     setTimeout(() => {
       clear();
     }, 10000);
   };
 
+  const confirmModal = () => {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "La compra será cancelada",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Cancelada!", "Su carrito está vacio", "success");
+        clear();
+      }
+    });
+  };
+
+  const orderForm = async () => {
+    const messageError = [];
+
+    const checkList = (name, email, number, address) => {
+      if (
+        (!/([^a-zA-Z ])/.test(name) || name !== "") &&
+        /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email) &&
+        number.length >= 5 &&
+        address.length >= 4
+      ) {
+        confirmBuy(formValues);
+      } else {
+        let mensajeE = "";
+        messageError.forEach((element) => {
+          mensajeE = mensajeE + `<br/>` + element;
+        });
+        Swal.fire(mensajeE);
+      }
+    };
+
+    const checkMails = (mail1, mail2) => {
+      if (mail1 !== mail2) {
+        Swal.fire("Los mails no coinciden");
+        return false;
+      } else {
+        return true;
+      }
+    };
+
+    const { value: formValues } = await Swal.fire({
+      title: "Introduce los datos de compra",
+      html: `<div class="orderInputContainer">
+      <label>Nombre</label>
+      <input type="text" id="swalInputName" class="swal2-input">
+      <label>Email</label>
+      <input type="email" id="swalInputMail" class="swal2-input">
+      <label>Repetir Email</label>
+      <input type="email" id="swalInputMailbis" class="swal2-input">
+      <label>Teléfono</label>
+      <input type="number" id="swalInputNumber" class="swal2-input">
+      <label>Dirección</label>
+      <input type="text" id="swalInputAddress" class="swal2-input">
+      </div>`,
+      focusConfirm: false,
+      preConfirm: () => {
+        const formulario = {
+          name: document.getElementById("swalInputName").value,
+          address: document.getElementById("swalInputAddress").value,
+          mail: document.getElementById("swalInputMail").value,
+          mail2: document.getElementById("swalInputMailbis").value,
+          number: document.getElementById("swalInputNumber").value,
+        };
+        for (const [clave, valor] of Object.entries(formulario)) {
+          if (valor === undefined || valor === null || valor === "") {
+            messageError.push("Los datos en " + clave + " estan incompletos");
+          }
+        }
+        return formulario;
+      },
+    });
+
+    if (formValues) {
+      if (checkMails(formValues.mail, formValues.mail2) === true) {
+        checkList(
+          formValues.name,
+          formValues.mail,
+          formValues.number,
+          formValues.address
+        );
+      }
+    }
+  };
+
   return (
     <div>
       {cart.length !== 0 ? (
-        <table className="cartContainer">
-          <tr className="cartRows">
-            <th className="thTable">Items</th>
-            <th className="thTable">Image</th>
-            <th className="thTable">Title</th>
-            <th className="thTable">Price</th>
-            <th>
-              <button onClick={clearItems} className="cartDelete">
-                <MdDeleteForever className="iconClear" size={24} />
-                Clear
-              </button>
-            </th>
-          </tr>
-          {cart.map((producto) => {
-            const precioItems = () => {
-              return producto.quantity * producto.price;
-            };
-            return (
-              <tr key={producto.id} className="cartRows">
-                <td className="tableQty">{producto.quantity}</td>
-                <td>
-                  <img
-                    src={producto.image}
-                    alt={producto.title}
-                    className="tableImg"
-                  />
-                </td>
-                <td className="tableTitle">{producto.title}</td>
-                <td className="tablePrice">$ {precioItems()}</td>
-                <td>
-                  <button
-                    onClick={() => removeItem(producto.id)}
-                    className="tableDelete"
-                  >
-                    <MdDelete size={24} className="iconDelete" />
-                  </button>
+        <div className="cartContainer">
+          <table>
+            <thead>
+              <tr className="cartRows">
+                <th className="thTable">Producto</th>
+                <th className="thTable">Cantidad</th>
+                <th className="thTable">Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((producto) => {
+                const precioItems = () => {
+                  return producto.quantity * producto.price;
+                };
+                return (
+                  <tr key={producto.id} className="cartRows">
+                    <td className="tableProduct">
+                      <img
+                        src={producto.image}
+                        alt={producto.title}
+                        className="tableImg"
+                      />
+                      <p className="tableTitle">{producto.title}</p>
+                    </td>
+                    <td className="tableQty">{producto.quantity}</td>
+                    <td className="tablePrice">$ {precioItems()}</td>
+                    <td>
+                      <button
+                        onClick={() => removeItem(producto.id)}
+                        className="tableDelete"
+                      >
+                        <MdDelete size={24} className="iconDelete" />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td className="totalPriceL">Total</td>
+                <td className="totalPrice">
+                  <p>${getTotalPrice()}</p>
                 </td>
               </tr>
-            );
-          })}
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td className="totalPrice">
-              <p>Total: ${getTotalPrice()}</p>
-            </td>
-            <td>
-              <button onClick={confirmBuy}>Confirmar compra</button>
-            </td>
-          </tr>
-        </table>
+            </tfoot>
+          </table>
+          <div className="cartButtons">
+            <button onClick={confirmModal} className="cartDeleteBtn">
+              <MdDeleteForever className="iconClear" size={24} />
+              Vaciar carrito
+            </button>
+            <button className="cartBuyBtn" onClick={orderForm}>
+              Continuar compra
+            </button>
+          </div>
+        </div>
       ) : (
         <div className="noCartContainer">
-          <h2>Oops! Your cart is empty. Go back to select some product.</h2>
+          <h2>
+            Ups! Su carrito esta vacío. Regresa al inicio y elige unos
+            productos.
+          </h2>
           <Link to="/" className="noCartButton">
-            Home
+            Volver
           </Link>
         </div>
       )}

@@ -1,7 +1,7 @@
 .containerProduct{
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 550px;
     padding: 20px;
     width: 23%;
     min-width: 200px;
@@ -12,10 +12,10 @@
 }
 
 .productImage{
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    object-fit: contain;
     vertical-align: top;
-    width: 180%;
+    margin-bottom: 20px;
 }
 
 .productTitle{
