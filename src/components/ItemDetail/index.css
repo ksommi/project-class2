@@ -62,15 +62,14 @@
     align-self: flex-end;
     border: none;
     border-radius: 5px;
-    background-color: var(--grey);
-    color: var(--white);
+    background-color: var(--blue);
+    color: var(--purewhite);
     font-weight: bold;
     font-size: 15px;
     transition: 0.7s;
 }
 
 .goCart:hover {
-    color: var(--purewhite);
-    background-color: var(--blue);
+    background-color: var(--darkblue);
     transition: 0.3s;
 }

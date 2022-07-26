@@ -55,7 +55,7 @@ const ItemDetail = ({ product }) => {
           <ItemCount handleAdd={handleConfirm} stock={product.stock} />
         ) : (
           <button onClick={handleTerminate} className="goCart">
-            Terminar compra
+            Agregar al carrito
           </button>
         )}
       </div>

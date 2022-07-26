@@ -2,7 +2,11 @@
     height: 20px;
     width: 20px;
     text-align: center;
-    color: var(--white);
-    background-color: var(--black);
+    color: var(--purewhite);
+    background-color: rgba(0,0,0,0.5);
     border-radius: 20px;
+    border: none;
+    position: relative;
+    right: 8px;
+    top: 4px;
 }

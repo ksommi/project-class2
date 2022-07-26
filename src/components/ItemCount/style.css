@@ -1,5 +1,5 @@
 .containerItemCount {
-    background-color: var(--darkblue);
+    background-color: var(--blue);
     width: 180px;
     display: flex;
     flex-direction: row;
@@ -14,7 +14,7 @@
     color: var(--purewhite);
     outline: none;
     border: none;
-    background-color:var(--darkblue);
+    background-color:var(--blue);
     font-size: large;
     border-radius: 10px;
 }
@@ -27,7 +27,7 @@
     width: 180px;
     height: 30px;
     margin: 10px 0px;
-    background-color: var(--darkblue);
+    background-color: var(--blue);
     color: var(--purewhite);
     border: none;
     border-radius: 10px;
@@ -35,5 +35,5 @@
 }
 
 .buttonAddCart:hover {
-    background-color: var(--blue);
+    background-color: var(--darkblue);
 }

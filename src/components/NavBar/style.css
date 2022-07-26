@@ -1,5 +1,5 @@
 .container-navbar {
-    background-color: var(--grey);
+    background-color: var(--blue);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -13,25 +13,25 @@
 
 .container-links a {
     text-decoration: none;
-    color:var(--white);
+    color:var(--purewhite);
     transition: 0.3s;
     padding: 5px 10px 15px 10px;
     margin-top: 10px;
 }
 
 .container-links a:hover {
-    color: var(--aqua);
+    color: var(--black);
     transition: 0.3s;
     cursor: pointer;
 }
 
 .logo, svg {
-    color: var(--white);
+    color: var(--purewhite);
 }
 
 .container-links a.active {
     transition: 0.1s;
-    color: var(--blue);
+    color: var(--black);
     background-color: var(--backwhite);
     border-radius: 10px 10px 0px 0px;
 }

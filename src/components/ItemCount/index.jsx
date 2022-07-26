@@ -38,7 +38,7 @@ const ItemCount = ({ handleAdd, stock }) => {
             </button>
           </div>
           <button onClick={handleConfirm} className="buttonAddCart">
-            Agregar al carrito
+            Confirmar cantidad
           </button>
         </>
       ) : (
