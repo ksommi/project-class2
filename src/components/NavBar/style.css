@@ -35,3 +35,34 @@
     background-color: var(--backwhite);
     border-radius: 10px 10px 0px 0px;
 }
+
+
+@media (max-width:768px) {
+.logo {
+    display: none;
+}
+
+.container-navbar {
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.container-links {
+    flex-direction: column;
+}
+
+.container-links a.active {
+    border-radius: 10px;
+}
+
+.container-links a {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.navBarCart{
+    position: absolute;
+    right: 20px;
+}
+
+}

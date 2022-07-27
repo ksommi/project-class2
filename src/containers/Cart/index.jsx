@@ -21,9 +21,7 @@ const Cart = () => {
   const confirmBuy = async (orderBuyer) => {
     const orden = generarOrden(orderBuyer, cart, getTotalPrice());
     guardarOrden(cart, orden, navigate);
-    setTimeout(() => {
-      clear();
-    }, 10000);
+    clear();
   };
 
   const confirmModal = () => {
@@ -55,6 +53,22 @@ const Cart = () => {
         address.length >= 4
       ) {
         confirmBuy(formValues);
+        Swal.fire({
+          title: "Sus datos fueron recibidos!",
+          html: "Espere mientras se genera su orden",
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+          }
+        });
+      } else if (!/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email)) {
+        Swal.fire("El formato del mail es incorrecto");
       } else {
         let mensajeE = "";
         messageError.forEach((element) => {
@@ -74,7 +88,7 @@ const Cart = () => {
     };
 
     const { value: formValues } = await Swal.fire({
-      title: "Introduce los datos de compra",
+      title: "Introduce tus datos",
       html: `<div class="orderInputContainer">
       <label>Nombre</label>
       <input type="text" id="swalInputName" class="swal2-input">
@@ -83,7 +97,7 @@ const Cart = () => {
       <label>Repetir Email</label>
       <input type="email" id="swalInputMailbis" class="swal2-input">
       <label>Teléfono</label>
-      <input type="number" id="swalInputNumber" class="swal2-input">
+      <input type="number" min="0" id="swalInputNumber" class="swal2-input">
       <label>Dirección</label>
       <input type="text" id="swalInputAddress" class="swal2-input">
       </div>`,

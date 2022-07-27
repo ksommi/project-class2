@@ -42,7 +42,7 @@ const NavBar = () => {
           Botines
         </NavLink>
       </div>
-      <Link to="/cart">
+      <Link to="/cart" className="navBarCart">
         <CartWidget />
       </Link>
     </div>

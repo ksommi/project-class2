@@ -160,3 +160,24 @@
     display: flex;
     flex-direction: column;
 }
+
+.orderInputContainer label {
+    margin-top: 20px;
+}
+
+.orderInputContainer input::-webkit-outer-spin-button,
+.orderInputContainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (max-width:768px) {
+    .tableProduct {
+        width: 100%;
+    }
+
+    .cartContainer{
+        margin: 10px;
+        padding: 5px
+    }
+}

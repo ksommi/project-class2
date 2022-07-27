@@ -73,3 +73,18 @@
     background-color: var(--darkblue);
     transition: 0.3s;
 }
+
+@media (max-width:768px){
+    .detailContainer{
+        flex-direction: column;
+    }
+
+    .detailImgContainer{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .detailPRDContainer{
+        width: 100%;
+    }
+}
