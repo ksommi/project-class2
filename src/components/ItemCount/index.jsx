@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 import "./style.css";
 
-const ItemCount = ({ handleAdd, stock }) => {
+const ItemCount = ({ handleAdd, stock, handleDone }) => {
   const [contador, setContador] = useState(1);
 
   const onAdd = () => {
@@ -20,7 +21,7 @@ const ItemCount = ({ handleAdd, stock }) => {
     if (contador <= stock) {
       handleAdd(contador);
     } else {
-      alert("Value > maxQuantity");
+      Swal.fire("La cantidad seleccionada supera al stock disponible!");
     }
   };
 
@@ -32,13 +33,15 @@ const ItemCount = ({ handleAdd, stock }) => {
             <button onClick={onOut} className="buttonCount">
               -
             </button>
-            <span className="numberCount">{contador}</span>
+            <span className="numberCount" onChange={handleConfirm()}>
+              {contador}
+            </span>
             <button onClick={onAdd} className="buttonCount">
               +
             </button>
           </div>
-          <button onClick={handleConfirm} className="buttonAddCart">
-            Confirmar cantidad
+          <button onClick={handleDone} className="buttonAddCart">
+            Agregar al carrito
           </button>
         </>
       ) : (

@@ -3,6 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import "./style.css";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Order = () => {
   const [order, setOrder] = useState({});
@@ -18,7 +19,7 @@ const Order = () => {
         setOrder(orders);
       } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
+        Swal.fire("No such document!");
       }
     };
     getOrder();

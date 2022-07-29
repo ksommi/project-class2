@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./index.css";
 import ItemCount from "../ItemCount";
-import { useNavigate } from "react-router-dom";
 import { Shop } from "../../context/shopContext";
 import Loading from "../Loading";
+import Swal from "sweetalert2";
 
 const ItemDetail = ({ product }) => {
   const [qtyAdded, setQtyAdded] = useState(0);
-  const navigate = useNavigate();
 
   const { addItem } = useContext(Shop);
 
@@ -17,10 +16,9 @@ const ItemDetail = ({ product }) => {
 
   const handleTerminate = () => {
     addItem(product, qtyAdded);
-    navigate("/cart");
+    Swal.fire("Hecho", "Su producto se agregó al carrito.", "success");
   };
 
-  console.log(qtyAdded);
   return (
     <div className="detailContainer">
       <div className="detailImgContainer">
@@ -51,13 +49,13 @@ const ItemDetail = ({ product }) => {
           metus. Morbi ultricies egestas viverra.
         </p>
         <p className="detailPrice">${product.price}</p>
-        {!qtyAdded ? (
-          <ItemCount handleAdd={handleConfirm} stock={product.stock} />
-        ) : (
-          <button onClick={handleTerminate} className="goCart">
-            Agregar al carrito
-          </button>
-        )}
+        <>
+          <ItemCount
+            handleAdd={handleConfirm}
+            stock={product.stock}
+            handleDone={handleTerminate}
+          />
+        </>
       </div>
     </div>
   );

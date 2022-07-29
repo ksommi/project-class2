@@ -3,12 +3,12 @@ import ItemDetail from "../../components/ItemDetail";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import Swal from "sweetalert2";
 
 const ItemDetailContainer = () => {
   const [productDetail, setProductDetail] = useState({});
 
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -17,16 +17,13 @@ const ItemDetailContainer = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          console.log(docSnap.id);
-          console.log("Document data:", docSnap.data());
           const productDetail = { id: docSnap.id, ...docSnap.data() };
           setProductDetail(productDetail);
         } else {
-          console.log("No such document!");
+          Swal.fire("No existe el producto!");
         }
       } catch (error) {
-        console.log("Hubo un error");
-        console.log(error);
+        Swal.fire("Hubo un error :" + error);
       }
     };
 

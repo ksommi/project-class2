@@ -21,6 +21,7 @@
 
 .numberCount {
     color: var(--purewhite);
+    background-color: var(--blue);
 }
 
 .buttonAddCart {

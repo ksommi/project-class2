@@ -5,14 +5,13 @@ import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import Loading from "../../components/Loading";
 import "./style.css";
+import Swal from "sweetalert2";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
 
   const params = useParams();
-
-  console.log("UseParams", params);
 
   useEffect(() => {
     const getProductos = async () => {
@@ -28,8 +27,7 @@ const ItemListContainer = () => {
         setProductos(productos);
         setProductosFiltrados(productos);
       } catch (error) {
-        console.log("hubo un error");
-        console.log(error);
+        Swal.fire("Hubo un error :" + error);
       }
     };
 
@@ -46,8 +44,6 @@ const ItemListContainer = () => {
       setProductosFiltrados(productos);
     }
   }, [params, productos]);
-
-  console.log(productos);
 
   return (
     <>

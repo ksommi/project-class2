@@ -33,8 +33,6 @@ const guardarOrden = (cart, orden, navigate) => {
         } else {
           outOfStock.push(producto);
         }
-        console.log("Productos fuera de stock:");
-        console.log(outOfStock);
 
         if (outOfStock.length === 0) {
           addDoc(collection(db, "orders"), orden)
@@ -46,7 +44,7 @@ const guardarOrden = (cart, orden, navigate) => {
               });
             })
             .catch((err) => {
-              console.log(`Error: ${err.message}`);
+              Swal.fire(`Error: ${err.message}`);
             });
           // Si tenemos productos fuera de stock al momento de generar la order avisamos al usuario
         } else {

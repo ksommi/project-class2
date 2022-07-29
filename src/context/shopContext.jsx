@@ -9,7 +9,6 @@ const ShopProvider = ({ children }) => {
 
   const addItem = (producto, cantidad) => {
     const productoRepetido = isInCart(producto);
-    console.log(productoRepetido);
     if (productoRepetido) {
       productoRepetido.quantity += cantidad;
       setCart([...cart]);
@@ -32,8 +31,12 @@ const ShopProvider = ({ children }) => {
     return cart.find((elemento) => elemento.id === producto.id);
   };
 
+  const totalItems = () => {
+    return cart.reduce((acc, producto) => acc + producto.quantity, 0);
+  };
+
   return (
-    <Shop.Provider value={{ addItem, removeItem, cart, clear }}>
+    <Shop.Provider value={{ addItem, removeItem, cart, clear, totalItems }}>
       {children}
     </Shop.Provider>
   );

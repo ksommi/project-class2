@@ -18,10 +18,9 @@ const Item = ({ product }) => {
       />
       <h3 className="productTitle">{product.title}</h3>
       <hr />
-      <p className="productDescription">{product.description}</p>
       <p className="productPrice">${product.price}</p>
       <button href="#" className="productLink btn" onClick={handleDetail}>
-        Comprar
+        Ver más
       </button>
     </li>
   );

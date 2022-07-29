@@ -1,7 +1,7 @@
 .containerProduct{
     display: flex;
     flex-direction: column;
-    height: 550px;
+    height: 500px;
     padding: 20px;
     width: 23%;
     max-width: 430px;
@@ -22,8 +22,8 @@
 .productTitle{
     font-size: 20px;    
     color: var(--black);
-    margin: 0 0 0.5em 0;
     line-height: 1.1;
+    flex-grow: 1;
 }
 
 hr {
@@ -47,6 +47,7 @@ hr {
 .productPrice{
     width: 100px;
     color: var(--black);
+    flex-grow: 2;
 }
 
 .btn {
