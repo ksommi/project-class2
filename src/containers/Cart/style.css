@@ -1,9 +1,18 @@
+.cartFormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.notShow {
+    display: none;
+}
+
 .cartContainer{
-    background-color: var(--backwhite);
+    background-color: var(--purewhite);
+    width: 800px;
     margin: 20px auto;
     border-radius: 5px;
     padding: 40px 50px;
-    box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 15%);
     display: flex;
     flex-direction: column;
 }
@@ -126,11 +135,6 @@
 
 .cartButtons button {
     width: 200px;
-    height: 50px;
-    transition: 0.4s;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
     letter-spacing: 0.5px;
     margin: 15px;
 }
@@ -139,7 +143,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
     background-color: var(--grey);
 }
 
@@ -154,21 +157,6 @@
 
 .cartBuyBtn:hover {
     background-color: var(--darkblue);
-}
-
-.orderInputContainer {
-    display: flex;
-    flex-direction: column;
-}
-
-.orderInputContainer label {
-    margin-top: 20px;
-}
-
-.orderInputContainer input::-webkit-outer-spin-button,
-.orderInputContainer input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 @media (max-width:768px) {

@@ -1,0 +1,79 @@
+.formContainer {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    background-color: var(--purewhite);
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.formLeftSideContainer{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 50px;
+}
+
+.inputContainer label {
+    color: var(--blue);
+}
+
+.formInput {
+    margin-bottom: 10px;
+    padding: 10px;
+    height: 2em;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    border-radius: 2px;
+    outline: none;
+}
+
+.formInput:focus {
+    border-bottom: 1px solid var(--blue);
+}
+
+.formInput::-webkit-outer-spin-button,
+.formInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.formBtnContainer {
+    display: flex;
+    align-self: center;
+}
+
+.formBtnContainer button{
+    width: 150px;
+    margin: 15px;
+}
+
+.formCloseBtn {
+    background-color: var(--grey);
+}
+
+.formConfirmBtn{
+    background-color: var(--blue);
+}
+
+.formErrorMessage {
+    color: brown;
+    margin-bottom: 5px;
+}
+
+
+.scale-in-ver-bottom {
+	-webkit-animation: scale-in-ver-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-ver-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+  
+.scale-out-ver-bottom {
+        -webkit-animation: scale-out-ver-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+                animation: scale-out-ver-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }

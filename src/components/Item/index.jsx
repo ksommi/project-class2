@@ -19,7 +19,7 @@ const Item = ({ product }) => {
       <h3 className="productTitle">{product.title}</h3>
       <hr />
       <p className="productPrice">${product.price}</p>
-      <button href="#" className="productLink btn" onClick={handleDetail}>
+      <button href="#" className="productLink button" onClick={handleDetail}>
         Ver más
       </button>
     </li>

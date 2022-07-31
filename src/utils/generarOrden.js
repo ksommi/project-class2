@@ -1,9 +1,10 @@
 const generarOrden = (buyer, cart, total) => {
   return {
     buyer: {
-      name: buyer.name,
+      name: buyer.names,
       address: buyer.address,
-      mail: buyer.mail,
+      mail: buyer.email,
+      phone: buyer.phone,
     },
     items: cart,
     total: total,

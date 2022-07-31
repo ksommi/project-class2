@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Shop } from "../../context/shopContext";
 import "./style.css";
 import { MdDelete, MdDeleteForever } from "react-icons/md";
@@ -6,11 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import generarOrden from "../../utils/generarOrden";
 import guardarOrden from "../../utils/guardarOrden";
 import Swal from "sweetalert2";
-import orderForm from "../../utils/formOrden";
+import withReactContent from "sweetalert2-react-content";
+import OrderForm from "../../components/Checkout";
 
 const Cart = () => {
   const { cart, removeItem, clear } = useContext(Shop);
+  const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate();
+  const MySwal = withReactContent(Swal);
 
   const getTotalPrice = () => {
     return cart.reduce(
@@ -22,12 +25,13 @@ const Cart = () => {
   const confirmBuy = async (orderBuyer) => {
     const orden = generarOrden(orderBuyer, cart, getTotalPrice());
     guardarOrden(cart, orden, navigate);
+    setShowForm(false);
     clear();
   };
 
   const emptyCartModal = () => {
-    Swal.fire({
-      title: "¿Estás seguro?",
+    MySwal.fire({
+      title: <p>¿Estás seguro?</p>,
       text: "La compra será cancelada",
       icon: "warning",
       showCancelButton: true,
@@ -37,16 +41,20 @@ const Cart = () => {
       cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Cancelada!", "Su carrito está vacio", "success");
+        MySwal.fire("Cancelada!", "Su carrito está vacio", "success");
         clear();
+        setShowForm(false);
       }
     });
   };
 
   return (
     <div>
+      {showForm && (
+        <OrderForm setShowForm={setShowForm} confirmBuy={confirmBuy} />
+      )}
       {cart.length !== 0 ? (
-        <div className="cartContainer">
+        <div className="cartContainer boxShadow">
           <table>
             <thead>
               <tr className="cartRows">
@@ -96,15 +104,13 @@ const Cart = () => {
             </tfoot>
           </table>
           <div className="cartButtons">
-            <button onClick={emptyCartModal} className="cartDeleteBtn">
+            <button onClick={emptyCartModal} className="cartDeleteBtn button">
               <MdDeleteForever className="iconClear" size={24} />
               Vaciar carrito
             </button>
             <button
-              className="cartBuyBtn"
-              onClick={() => {
-                orderForm(confirmBuy);
-              }}
+              className="cartBuyBtn button"
+              onClick={() => setShowForm(true)}
             >
               Continuar compra
             </button>

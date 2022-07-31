@@ -1,6 +1,5 @@
 import React from "react";
 import { ImCart } from "react-icons/im";
-import { Link } from "react-router-dom";
 import { Shop } from "../../context/shopContext";
 import "./style.css";
 
@@ -12,7 +11,7 @@ const CartWidget = () => {
       <ImCart size={25} />
       {cart.length !== 0 ? (
         <button className="cartLength">
-          <Link to="/cart">{totalItems()}</Link>
+          <span to="/cart">{totalItems()}</span>
         </button>
       ) : (
         <div></div>
