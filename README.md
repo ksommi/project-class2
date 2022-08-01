@@ -6,7 +6,7 @@ _El siguiente proyecto es una Aplicación Web e-commerce, que permite navegar en
 
 _Para visualizar la página se puede acceder haciendo click aquí: [Kev-Commerce](https://kev-commerce.netlify.app/)_
 
-![Funcionamiento de la página](https://github.com/ksommi/project-class2/blob/master/public/animate.gif "Navegación entre productos y compra realizada")
+![Funcionamiento de la página](https://github.com/ksommi/project-class2/blob/master/public/Animation.gif "Navegación entre productos y compra realizada")
 
 ## Construido con 🛠️
 
