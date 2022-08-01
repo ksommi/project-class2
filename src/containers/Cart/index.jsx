@@ -3,11 +3,11 @@ import { Shop } from "../../context/shopContext";
 import "./style.css";
 import { MdDelete, MdDeleteForever } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import generarOrden from "../../utils/generarOrden";
-import guardarOrden from "../../utils/guardarOrden";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import OrderForm from "../../components/Checkout";
+import generateOrder from "../../utils/generateOrder";
+import saveOrder from "../../utils/saveOrder";
 
 const Cart = () => {
   const { cart, removeItem, clear } = useContext(Shop);
@@ -23,8 +23,8 @@ const Cart = () => {
   };
 
   const confirmBuy = async (orderBuyer) => {
-    const orden = generarOrden(orderBuyer, cart, getTotalPrice());
-    guardarOrden(cart, orden, navigate);
+    const orden = generateOrder(orderBuyer, cart, getTotalPrice());
+    saveOrder(cart, orden, navigate);
     setShowForm(false);
     clear();
   };

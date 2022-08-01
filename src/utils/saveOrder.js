@@ -8,7 +8,7 @@ import {
 import { db } from "../firebase/config";
 import Swal from "sweetalert2";
 
-const guardarOrden = (cart, orden, navigate) => {
+const saveOrder = (cart, orden, navigate) => {
   // Primer paso: abrir un batch
   const batch = writeBatch(db);
 
@@ -52,11 +52,11 @@ const guardarOrden = (cart, orden, navigate) => {
           for (const product of outOfStock) {
             mensaje += `${product.title}`;
           }
-          alert(`Productos fuera de stock:${mensaje}`);
+          Swal.fire(`Productos fuera de stock:${mensaje}`);
         }
       }
     );
   });
 };
 
-export default guardarOrden;
+export default saveOrder;

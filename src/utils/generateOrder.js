@@ -1,4 +1,4 @@
-const generarOrden = (buyer, cart, total) => {
+const generateOrder = (buyer, cart, total) => {
   return {
     buyer: {
       name: buyer.names,
@@ -12,4 +12,4 @@ const generarOrden = (buyer, cart, total) => {
   };
 };
 
-export default generarOrden;
+export default generateOrder;
