@@ -50,3 +50,18 @@
     text-align: end;
     padding-right: 20px;
 }
+
+@media (max-width: 768px) {
+    .orderContainer {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .orderProductImage {
+        width: 50px;
+    }
+
+    .orderRows {
+        width: 100%;
+    }
+}

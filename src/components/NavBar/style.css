@@ -61,8 +61,19 @@
 }
 
 .navBarCart{
-    position: absolute;
+    position: fixed;
+    bottom: 15px;
     right: 20px;
+    background-color: var(--blue);
+    border-radius: 100%;
+    height: 45px;
+    width: 45px;
+}
+
+.navBarCart div {
+    position: relative;
+    top: 10px;
+    left: 8px;
 }
 
 }

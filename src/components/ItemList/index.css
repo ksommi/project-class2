@@ -2,9 +2,19 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    max-width: 1180px;
+    align-self: center;
 }
 
 @media (max-width:768px) {
+.containerItems{
+    justify-content: center;
+}
 
+}
+
+@media (max-width:1024px) {
+
+    
 
 }

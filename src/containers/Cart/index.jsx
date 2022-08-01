@@ -94,7 +94,7 @@ const Cart = () => {
               })}
             </tbody>
             <tfoot>
-              <tr>
+              <tr className="cartRows">
                 <td></td>
                 <td className="totalPriceL">Total</td>
                 <td className="totalPrice">

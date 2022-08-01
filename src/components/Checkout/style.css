@@ -49,17 +49,28 @@
     align-self: center;
 }
 
-.formBtnContainer button{
+.formBtnContainer .button{
     width: 150px;
     margin: 15px;
 }
 
 .formCloseBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--grey);
+}
+
+.formCloseBtn:hover {
+    background-color: var(--black);
 }
 
 .formConfirmBtn{
     background-color: var(--blue);
+}
+
+.formConfirmBtn:hover {
+    background-color: var(--darkblue);
 }
 
 .formErrorMessage {
@@ -77,3 +88,28 @@
         -webkit-animation: scale-out-ver-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
                 animation: scale-out-ver-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     }
+
+@media (max-width:768px) {
+    .formContainer {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .formLeftSideContainer {
+        width: 100%;
+        height: 200px;
+        justify-content: center;
+    }
+
+    .inputContainer {
+        width: 100%;
+    }
+
+    .formBtnContainer {
+        flex-direction: column;
+    }
+
+    .formBtnContainer .button {
+        width: 200px;
+    }
+}

@@ -14,9 +14,9 @@
 
 .button {
   height: 50px;
-    transition: 0.4s;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    color: var(--purewhite);
+  transition: 0.4s;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: var(--purewhite);
 }

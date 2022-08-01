@@ -135,7 +135,6 @@
 
 .cartButtons button {
     width: 200px;
-    letter-spacing: 0.5px;
     margin: 15px;
 }
 
@@ -160,12 +159,66 @@
 }
 
 @media (max-width:768px) {
-    .tableProduct {
+
+    thead .cartRows {
+        display: none;
+    }
+
+    tbody .cartRows {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         width: 100%;
     }
 
+    tfoot .cartRows {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .totalPriceL {
+        order: 1;
+        padding: 0 15px;
+    }
+
+    .totalPrice {
+        order: 0;
+        padding: 0 5px;
+    }
+
+    .tableProduct {
+        padding-top: 5px;
+        width: 100%;
+    }
+
+    .tableQty {
+        width: 70px;
+    }
+
+    .tablePrice {
+        width: 200px;
+    }
+
     .cartContainer{
-        margin: 10px;
-        padding: 5px
+        width: 90%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    .cartContainer tbody td {
+        border-bottom: none;
+    }
+
+    .cartContainer tbody td:first-child{
+        border-top: 1px solid var(--white);
+    }
+
+    .cartButtons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cartButtons button {
+        margin: 8px;
     }
 }

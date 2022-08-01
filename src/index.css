@@ -36,6 +36,14 @@ code {
   padding-right: 50px;
 }
 
+button:hover, .button:hover {
+  cursor: pointer;
+}
+
+button {
+  font-family: 'Rubik';
+}
+
 @media (max-width:768px) {
   .paddings {
     padding-left: 30px;

@@ -107,12 +107,9 @@ const OrderForm = ({ setShowForm, confirmBuy }) => {
         />
         <p className="formErrorMessage">{errors.address?.message}</p>
         <div className="formBtnContainer">
-          <button
-            className="formCloseBtn button"
-            onClick={(e) => cancelDates(e)}
-          >
+          <span className="formCloseBtn button" onClick={(e) => cancelDates(e)}>
             Cancelar
-          </button>
+          </span>
           <button type="submit" className="formConfirmBtn button">
             Enviar datos
           </button>
