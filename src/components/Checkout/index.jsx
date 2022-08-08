@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const OrderForm = ({ setShowForm, confirmBuy }) => {
+const OrderForm = ({ setShowForm, confirmBuy, setShowCart }) => {
   const MySwal = withReactContent(Swal);
   const [mailCompare, setMailCompare] = useState();
   const {
@@ -107,7 +107,13 @@ const OrderForm = ({ setShowForm, confirmBuy }) => {
         />
         <p className="formErrorMessage">{errors.address?.message}</p>
         <div className="formBtnContainer">
-          <span className="formCloseBtn button" onClick={(e) => cancelDates(e)}>
+          <span
+            className="formCloseBtn button"
+            onClick={(e) => {
+              cancelDates(e);
+              setShowCart(true);
+            }}
+          >
             Cancelar
           </span>
           <button type="submit" className="formConfirmBtn button">
