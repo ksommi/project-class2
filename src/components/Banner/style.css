@@ -1,18 +1,19 @@
-.bannerContainer{
-    height: 500px;
-    width: 100%;
-    background-image: url(/public/assets/images/banner/59937c504221d831349436489c5b051d.jpg);
-    background-size: cover;
-    background-position: bottom;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+.bannerContainer {
+  height: 500px;
+  width: 100vw;
+  background-image: url(/public/assets/images/banner/59937c504221d831349436489c5b051d.jpg);
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 40px auto;
 }
 
 .bannerText {
-    width: 100%;
-    text-align: center;
-    color: var(--white);
-    background-color: rgb(0, 0, 0, 0.5);
-    padding: 10px;
+  width: 100%;
+  text-align: center;
+  color: var(--white);
+  background-color: rgb(0, 0, 0, 0.5);
+  padding: 10px;
 }

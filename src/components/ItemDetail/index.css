@@ -1,90 +1,89 @@
 .detailContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin: 20px 5vw;
-    background-color: var(--purewhite);
-    padding: 20px;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px 5vw;
+  background-color: var(--purewhite);
+  padding: 20px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
 
 .detailLoading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.detailImgContainer{
-    width: 38vw;
+.detailImgContainer {
+  width: 50%;
 }
 
- 
 .detailImage {
-    width: 100%
+  width: 100%;
 }
 
 .detailPRDContainer {
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    margin: 0 20px;
-    flex-grow: 1;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  flex-grow: 1;
 }
 
 .detailCategory {
-    text-transform: uppercase;
-    color: var(--blue);
+  text-transform: uppercase;
+  color: var(--blue);
 }
 
 .detailTitle {
-    font-size: 1.8em;
-    width: 100%;
+  font-size: 1.8em;
+  width: 100%;
 }
 
 .detailDescription {
-    margin: 20px 0px;
-    color: var(--grey);
-    font-weight: 300;
+  margin: 20px 0px;
+  color: var(--grey);
+  font-weight: 300;
 }
 
 .detailPrice {
-    font-size: 1.7em;
+  font-size: 1.7em;
 }
 
-.containerSuperiorItemCount{
-    margin-top: 1em;
-    align-self: flex-end;
+.containerSuperiorItemCount {
+  margin-top: 1em;
+  align-self: flex-end;
 }
 
 .goCart {
-    width: 180px;
-    height: 40px;
-    align-self: flex-end;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--blue);
-    color: var(--purewhite);
-    font-weight: bold;
-    font-size: 15px;
-    transition: 0.7s;
+  width: 180px;
+  height: 40px;
+  align-self: flex-end;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--blue);
+  color: var(--purewhite);
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.7s;
 }
 
 .goCart:hover {
-    background-color: var(--darkblue);
-    transition: 0.3s;
+  background-color: var(--darkblue);
+  transition: 0.3s;
 }
 
-@media (max-width:768px){
-    .detailContainer{
-        flex-direction: column;
-    }
+@media (max-width: 768px) {
+  .detailContainer {
+    flex-direction: column;
+  }
 
-    .detailImgContainer{
-        width: 100%;
-        margin-bottom: 20px;
-    }
+  .detailImgContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-    .detailPRDContainer{
-        width: 100%;
-    }
+  .detailPRDContainer {
+    width: 100%;
+  }
 }
